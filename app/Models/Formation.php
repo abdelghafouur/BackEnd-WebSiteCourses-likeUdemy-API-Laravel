@@ -32,4 +32,8 @@ class Formation extends Model
     {
         return $this->hasMany(Objective::class);
     }
+    public function register_formations()
+    {
+        return $this->hasMany(RegisterFormation::class);
+    }
 }

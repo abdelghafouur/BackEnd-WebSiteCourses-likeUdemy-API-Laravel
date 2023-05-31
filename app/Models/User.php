@@ -50,6 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Result::class);
     }
+    public function register_formations()
+    {
+        return $this->hasMany(RegisterFormation::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

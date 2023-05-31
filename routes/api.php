@@ -65,8 +65,6 @@ Route::put('/updateResultat/{courseId}/{compteId}', [QuizController::class, 'upd
 
 Route::post('/generate-certificate', [CertificateController::class, 'generateCertificate']);
 Route::put('/updateCertificate/{courseId}/{compteId}', [CertificateController::class, 'updateNewCertificate']);
-
-
 Route::get('/certificategetDown/{courseId}/{compteId}', [CertificateController::class, 'certificategetDownoald']);
 
 Route::get('/CommentCoursesAvg/{courseId}', [CourseController::class, 'CommentCoursesMoyn']);
@@ -76,3 +74,8 @@ Route::put('/updateRatCourse/{courseId}', [CourseController::class, 'updateCours
 
 
 Route::post('/contact-us', [ContactUsController::class, 'sendEmail']);
+
+Route::post('/FormationInscp', [CertificateController::class, 'registerResultatIscription']);
+Route::post('/generate-atestation', [CertificateController::class, 'generateAtestation']);
+Route::put('/updateAtestationInscr/{formationId}/{compteId}', [CertificateController::class, 'updateAtestationInscrForm']);
+Route::get('/AtestationDown/{formationId}/{compteId}', [CertificateController::class, 'AtestationDownInsc']);
