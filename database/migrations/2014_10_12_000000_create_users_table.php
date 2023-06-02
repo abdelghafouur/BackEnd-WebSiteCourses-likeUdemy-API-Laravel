@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('sexe');
             $table->string('adresse')->nullable();
             $table->string('password');
+            $table->string('role');
             $table->string('image')->nullable();
             $table->string('about')->nullable();
             $table->string('description')->nullable();

@@ -33,6 +33,7 @@ class User extends Authenticatable
         'image',
         'about',
         'description',
+        'role',
     ];
     public function courses()
     {

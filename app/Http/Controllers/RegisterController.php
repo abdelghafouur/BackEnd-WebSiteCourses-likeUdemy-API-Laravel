@@ -25,6 +25,7 @@ class RegisterController extends Controller
             $user->sexe = $request->sexe;
             $user->adresse = $request->adresse;
             $user->password = Hash::make($request->password);
+            $user->role = $request->role;
             $user->save();
 
             return response()->json(['message' => 'Registration successful'], 200);

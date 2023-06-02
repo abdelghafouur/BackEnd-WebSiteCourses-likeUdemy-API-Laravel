@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
             'date' => '2023-05-02',
             'sexe' => 'Masculin',
             'adresse' => 'Masculin',
-            'password' => Hash::make("123")
+            'password' => Hash::make("123"),
+            'role' =>'User'
         ]);
         DB::table('categories')->insert([
             'name' => 'info',
