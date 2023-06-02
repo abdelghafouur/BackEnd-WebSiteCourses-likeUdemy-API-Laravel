@@ -76,6 +76,10 @@ Route::put('/updateRatCourse/{courseId}', [CourseController::class, 'updateCours
 Route::post('/contact-us', [ContactUsController::class, 'sendEmail']);
 
 Route::post('/FormationInscp', [CertificateController::class, 'registerResultatIscription']);
+Route::get('/FormationInscpget/{formationId}/{compteId}', [CertificateController::class, 'FormationInscpgetUser']);
 Route::post('/generate-atestation', [CertificateController::class, 'generateAtestation']);
 Route::put('/updateAtestationInscr/{formationId}/{compteId}', [CertificateController::class, 'updateAtestationInscrForm']);
 Route::get('/AtestationDown/{formationId}/{compteId}', [CertificateController::class, 'AtestationDownInsc']);
+
+Route::post('/CoursesAcheter', [CourseController::class, 'CoursesAcheterUser']);
+Route::get('/CoursesAcheterbyUser/{courseId}/{compteId}', [CourseController::class, 'CoursesacheterbyUser']);

@@ -163,5 +163,16 @@ public function AtestationDownInsc($formationId,$compteId)
     // Return the PDF file as a response
     return response($pdfData, 200, $headers);
 }
+public function FormationInscpgetUser(Request $request, $formationId,$compteId)
+    {
+        try {
+            $FormationUser = RegisterFormation::where('formation_id', $formationId)
+                        ->where('compte_id', $compteId)
+                        ->first();
+            return response()->json($FormationUser);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to fetch user courses'], 500);
+        }
+    }
 }
 

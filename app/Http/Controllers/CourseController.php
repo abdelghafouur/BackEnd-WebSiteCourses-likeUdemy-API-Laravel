@@ -132,4 +132,28 @@ class CourseController extends Controller
             return response()->json(['message' => 'Update failed', 'error' => $e->getMessage()], 500);
         }
     }
+    public function CoursesAcheterUser(Request $request)
+{
+    try {
+        $Result = new Purchased_courses();
+        $Result->course_id = $request->course_id;
+        $Result->compte_id = $request->compte_id;
+        $Result->save();
+
+        return response()->json(['message' => 'Registration successful'], 200);
+    } catch (\Exception $e) {
+        return response()->json(['message' => 'Registration failed', 'error' => $e->getMessage()], 500);
+    }
+}
+public function CoursesacheterbyUser(Request $request, $courseId,$compteId)
+    {
+        try {
+            $FormationUser = Purchased_courses::where('course_id', $courseId)
+                        ->where('compte_id', $compteId)
+                        ->first();
+            return response()->json($FormationUser);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Failed to fetch user courses'], 500);
+        }
+    }
 }
