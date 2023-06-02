@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\ImageController;
 
 
 /*
@@ -83,3 +84,7 @@ Route::get('/AtestationDown/{formationId}/{compteId}', [CertificateController::c
 
 Route::post('/CoursesAcheter', [CourseController::class, 'CoursesAcheterUser']);
 Route::get('/CoursesAcheterbyUser/{courseId}/{compteId}', [CourseController::class, 'CoursesacheterbyUser']);
+
+
+Route::get('images/{filename}', [ImageController::class, 'getImage'])->name('image.display');
+

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +16,9 @@ use App\Http\Controllers\RegisterController;
 */
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-});
+Route::get('images/{filename}', [ImageController::class, 'getImage'])->name('image.display');
+
+
 
 
 
