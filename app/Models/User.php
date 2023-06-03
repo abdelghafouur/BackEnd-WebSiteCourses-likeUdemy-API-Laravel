@@ -34,6 +34,7 @@ class User extends Authenticatable
         'about',
         'description',
         'role',
+        'etat',
     ];
     public function courses()
     {

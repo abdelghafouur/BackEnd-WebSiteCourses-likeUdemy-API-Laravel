@@ -12,6 +12,8 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 
 
 /*
@@ -88,3 +90,10 @@ Route::get('/CoursesAcheterbyUser/{courseId}/{compteId}', [CourseController::cla
 
 Route::get('images/{filename}', [ImageController::class, 'getImage'])->name('image.display');
 
+
+
+
+Route::post('/password/reset/request', [ForgotPasswordController::class, 'sendResetCode']);
+Route::post('/password/reset/update/{code}', [ResetPasswordController::class, 'resetPassword']);
+
+Route::post('/UserMailSend', [ContactUsController::class, 'sendEmailEnregister']);

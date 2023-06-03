@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('adresse')->nullable();
             $table->string('password');
             $table->string('role');
+            $table->string('etat')->default("false");
             $table->string('image')->nullable();
             $table->string('about')->nullable();
             $table->string('description')->nullable();

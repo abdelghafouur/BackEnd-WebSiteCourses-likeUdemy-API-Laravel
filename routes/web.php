@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ImageController;
+use Illuminate\Support\Facades\Redirect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,9 @@ use App\Http\Controllers\ImageController;
 
 Route::get('images/{filename}', [ImageController::class, 'getImage'])->name('image.display');
 
-
+Route::get('/password/reset/{code}', function ($code) {
+    return Redirect::to('http://localhost:3000/NewPasswordComponent/' . $code);
+});
 
 
 

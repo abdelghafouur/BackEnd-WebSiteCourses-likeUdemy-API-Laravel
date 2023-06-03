@@ -27,8 +27,10 @@ class RegisterController extends Controller
             $user->password = Hash::make($request->password);
             $user->role = $request->role;
             $user->save();
+// Retrieve the registered user with all attributes
+$registeredUser = User::find($user->id);
 
-            return response()->json(['message' => 'Registration successful'], 200);
+return response()->json(['user' => $registeredUser, 'message' => 'Registration successful'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Registration failed', 'error' => $e->getMessage()], 500);
         }

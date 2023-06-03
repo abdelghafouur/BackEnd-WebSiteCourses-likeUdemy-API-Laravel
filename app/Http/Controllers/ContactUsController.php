@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUsMail;
-
+use App\Mail\MailUser;
+use App\Models\User;
 
 class ContactUsController extends Controller
 {
@@ -19,6 +20,21 @@ class ContactUsController extends Controller
 
         // Send the email
         Mail::to("nvabdouamanu@gmail.com")->send(new ContactUsMail($mailData));
+
+        // Return a response indicating the email was sent successfully
+        return response()->json(['message' => 'Email sent successfully'], 200);
+    }
+    public function sendEmailEnregister(Request $request)
+    {
+        $id = $request->id;
+        $user = User::find($id);
+        $mailData = [
+                        'firstname' => $user->firstname,
+                        'lastname' => $user->lastname,
+        ];
+
+        // Send the email
+        Mail::to($user->email)->send(new MailUser($mailData));
 
         // Return a response indicating the email was sent successfully
         return response()->json(['message' => 'Email sent successfully'], 200);

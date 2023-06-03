@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'firstname' => 'abdelghafouuur',
             'lastname' => 'Lahnidaaa',
-            'email' => 'abdou@gmail.com',
+            'email' => 'nvabdouamanu@gmail.com',
             'tele' => '0473333833',
             'date' => '2023-05-02',
             'sexe' => 'Masculin',
