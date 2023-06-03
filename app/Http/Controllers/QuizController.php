@@ -6,10 +6,16 @@ use App\Models\Test;
 use App\Models\Result;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class QuizController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     public function quizCourse(Request $request, $courseId)
     {
         try {

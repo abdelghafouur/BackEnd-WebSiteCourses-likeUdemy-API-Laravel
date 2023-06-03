@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Formation;
 use App\Models\Objective;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
+
 
 class FormationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     public function index()
     {
         $formation = Formation::with('category')->get();

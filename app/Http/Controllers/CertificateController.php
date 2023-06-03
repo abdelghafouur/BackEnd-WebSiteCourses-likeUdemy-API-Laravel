@@ -9,9 +9,15 @@ use Dompdf\Dompdf;
 use Carbon\Carbon;
 use App\Models\Result;
 use App\Models\RegisterFormation;
+use Illuminate\Support\Facades\Auth;
 
 class CertificateController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
+
     public function generateCertificate(Request $request)
 {
     $firstname = $request->input('firstname');
