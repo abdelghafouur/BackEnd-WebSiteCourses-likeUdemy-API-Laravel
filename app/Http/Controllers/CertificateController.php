@@ -9,14 +9,9 @@ use Dompdf\Dompdf;
 use Carbon\Carbon;
 use App\Models\Result;
 use App\Models\RegisterFormation;
-use Illuminate\Support\Facades\Auth;
 
 class CertificateController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
 
     public function generateCertificate(Request $request)
 {
@@ -93,13 +88,19 @@ public function generateAtestation(Request $request)
 {
     $firstname = $request->input('firstname');
     $lastname = $request->input('lastname');
-    $date = Carbon::today()->format('Y-m-d');
+    $title = $request->input('title');
+    $dateDeb = $request->input('date');
+    $duration = $request->input('duration');
+    $time = $request->input('time');
+    $location = $request->input('location');
+    $price = $request->input('price');
+    $dateIns = Carbon::today()->format('Y-m-d');
 
     // Read the certificate template file
     $template = file_get_contents(public_path('atestation-template.html'));
 
     // Replace the placeholders with the provided data
-    $certificate = str_replace(['{{ firstname }}', '{{ lastname }}','{{ date }}'], [$firstname, $lastname, $date], $template);
+    $certificate = str_replace(['{{ firstname }}', '{{ lastname }}','{{ title }}','{{ dateDeb }}', '{{ duration }}','{{ time }}','{{ location }}', '{{ price }}','{{ dateIns }}'], [$firstname, $lastname, $title, $dateDeb, $duration, $time, $location, $price, $dateIns], $template);
 
     // Use Dompdf to generate the PDF
     $dompdf = new \Dompdf\Dompdf();
@@ -110,7 +111,7 @@ public function generateAtestation(Request $request)
     // Return the PDF as a response with appropriate headers
     return Response::make($dompdf->output(), 200, [
         'Content-Type' => 'application/pdf',
-        'Content-Disposition' => 'inline; filename=certificate.pdf',
+        'Content-Disposition' => 'inline; filename=Ficher_Inscription.pdf',
     ]);
 }
 public function registerResultatIscription(Request $request)
@@ -163,7 +164,7 @@ public function AtestationDownInsc($formationId,$compteId)
     // Set the appropriate headers for the response
     $headers = [
         'Content-Type' => 'application/pdf',
-        'Content-Disposition' => 'inline; filename=certificate.pdf',
+        'Content-Disposition' => 'inline; filename=Ficher_Inscription.pdf',
     ];
 
     // Return the PDF file as a response

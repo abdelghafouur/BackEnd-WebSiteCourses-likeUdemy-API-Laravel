@@ -1,100 +1,64 @@
-<h1>halloooo</h1>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html" />
-  <meta charset="utf-8" />
-  <title>Certificate</title>
+  <meta charset="UTF-8">
+  <title>Inscription à la formation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333333;
+    }
 
+    h1 {
+      color: #000000;
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Dancing+Script:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    h2 {
+      color: #000000;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+  </style>
 </head>
-<style>
-body {
-    font-family: Roboto;
-}
-
-.certificate-container {
-    padding: 50px;
-    width: 800px;
-}
-.certificate {
-    border: 20px solid #0C5280;
-    padding: 25px;
-    height: 600px;
-    position: relative;
-}
-
-.certificate:after {
-    content: '';
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    position: absolute;
-    background-image: url(https://image.ibb.co/ckrVv7/water_mark_logo.png);
-    background-size: 100%;
-    z-index: -1;
-}
-
-.certificate-header > .logo {
-    width: 80px;
-    height: 80px;
-}
-
-
-
-h1 {
-
-    font-weight: 400;
-    font-size: 48px;
-    color: #0C5280;
-}
-
-.student-name {
-    font-size: 24px;
-}
-
-.certificate-content {
-    width: 750px;
-}
-
-.about-certificate {
-    width: 340px;
-
-}
-
-.topic-description {
-    text-align: center;
-}
-
-
-
-</style>
-
-<body id="body">
-    <div class="certificate-container">
-        <div class="certificate">
-            <div class="water-mark-overlay"></div>
-            <div>
-                <img src="logo/logo.jpg" class="logo" alt="">
-            </div>
-            <div class="certificate-body">
-                <h1>Certificate of Completion</h1>
-                <p class="student-name">This is to certify that :<strong> {{ firstname }} {{ lastname }} </strong></p>
-                <div class="certificate-footer text-muted">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>Date :   <strong>{{ date }} </strong></p>
-                        </div>
-                        <br/><br/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<body>
+    <h1>Cher {{ firstname }} {{ lastname }},</h1>
+    <p>Nous vous remercions de vous être inscrit à notre formation sur <strong>{{ title }} </strong>. Nous sommes ravis de vous avoir parmi les participants et nous sommes impatients de vous accompagner dans votre parcours d'apprentissage.</p>
+    <h2>Voici les détails de votre inscription :</h2>
+    <ul>
+      <li><strong>Nom de la formation :</strong> <strong>{{ title }} </strong></li>
+      <li><strong>Date de début :</strong> <strong>{{ dateDeb }} </strong></li>
+      <li><strong>Date d' Inscription :</strong> <strong>{{ dateIns }} </strong></li>
+      <li><strong>Durée :</strong> <strong>{{ duration }} </strong></li>
+      <li><strong>Horaire :</strong> <strong>{{ time }} </strong> (heure locale)</li>
+      <li><strong>Lieu :</strong> <strong>{{ location }} </strong></li>
+      <li><strong>Price :</strong> <strong>{{ price }} </strong></li>
+    </ul>
+    <p>Veuillez noter que votre inscription est confirmée et que votre place est réservée pour la formation. Nous vous encourageons à vous préparer à cette expérience en vous familiarisant avec le programme de la formation et en vous assurant d'avoir accès à tous les outils et matériaux nécessaires.</p>
+    <p>Cette formation est conçue pour vous fournir les connaissances et les compétences nécessaires dans le domaine de [Domaine de la Formation]. Nous avons rassemblé une équipe d'experts qualifiés qui vous guideront tout au long de votre parcours d'apprentissage.</p>
+    <p>Nous espérons que vous apprécierez cette expérience et que vous en retirerez de nombreux bénéfices.</p>
+    <p>Cordialement,</p>
+    <p>L'équipe de <strong> NEW GENERATION </strong></p>
 </body>
-
 </html>

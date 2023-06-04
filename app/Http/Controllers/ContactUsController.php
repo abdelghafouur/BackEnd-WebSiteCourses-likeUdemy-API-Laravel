@@ -7,15 +7,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactUsMail;
 use App\Mail\MailUser;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class ContactUsController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
 
     public function sendEmail(Request $request)
     {
@@ -38,6 +33,7 @@ class ContactUsController extends Controller
         $mailData = [
                         'firstname' => $user->firstname,
                         'lastname' => $user->lastname,
+                        'email' => $user->email,
         ];
 
         // Send the email

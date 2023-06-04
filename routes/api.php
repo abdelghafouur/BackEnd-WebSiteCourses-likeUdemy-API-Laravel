@@ -44,6 +44,7 @@ Route::get('images/{filename}', [ImageController::class, 'getImage'])->name('ima
 Route::post('/password/reset/request', [ForgotPasswordController::class, 'sendResetCode']);
 Route::post('/password/reset/update/{code}', [ResetPasswordController::class, 'resetPassword']);
 Route::post('/UserMailSend', [ContactUsController::class, 'sendEmailEnregister']);
+Route::post('/contact-us', [ContactUsController::class, 'sendEmail']);
 
 // Route definition with authentication middleware
 Route::middleware('auth:api')->group(function () {
@@ -62,22 +63,21 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/updateRatCourse/{courseId}', [CourseController::class, 'updateCourseRat']);
     Route::post('/CoursesAcheter', [CourseController::class, 'CoursesAcheterUser']);
     Route::get('/CoursesAcheterbyUser/{courseId}/{compteId}', [CourseController::class, 'CoursesacheterbyUser']);
-    Route::post('/contact-us', [ContactUsController::class, 'sendEmail']);
     Route::get('/formation/{formationId}', [FormationController::class, 'formation']);
     Route::get('/objectFormation/{objectiveId}', [FormationController::class, 'objectFormation']);
     Route::get('/CommentFormation/{formationId}', [FormationController::class, 'CommentFormation']);
     Route::post('/registerCommentsFor', [FormationController::class, 'registerCommentsFor']);
     Route::post('/FormationInscp', [CertificateController::class, 'registerResultatIscription']);
     Route::get('/FormationInscpget/{formationId}/{compteId}', [CertificateController::class, 'FormationInscpgetUser']);
-    Route::post('/generate-atestation', [CertificateController::class, 'generateAtestation']);
     Route::put('/updateAtestationInscr/{formationId}/{compteId}', [CertificateController::class, 'updateAtestationInscrForm']);
     Route::get('/AtestationDown/{formationId}/{compteId}', [CertificateController::class, 'AtestationDownInsc']);
     Route::get('/FindquizCourse/{courseId}/{compteId}', [QuizController::class, 'findquizCourseUser']);
     Route::get('/certificategetDown/{courseId}/{compteId}', [CertificateController::class, 'certificategetDownoald']);
-    Route::post('/generate-certificate', [CertificateController::class, 'generateCertificate']);
     Route::put('/updateCertificate/{courseId}/{compteId}', [CertificateController::class, 'updateNewCertificate']);
     Route::get('/QuizmyCourse/{courseId}', [QuizController::class, 'quizCourse']);
     Route::post('/ResultatTest', [QuizController::class, 'registerResultat']);
     Route::put('/updateResultat/{courseId}/{compteId}', [QuizController::class, 'updateResultatUse']);
 
 });
+Route::post('/generate-certificate', [CertificateController::class, 'generateCertificate']);
+Route::post('/generate-atestation', [CertificateController::class, 'generateAtestation']);
